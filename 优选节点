@@ -1,0 +1,13 @@
+proxies:
+- {name: 1|🇭🇰1 | 6.1MB/s, server: hkre1-cdn-route.couldflare-cdn.com, port: 443, type: http, username: mrwdfNTD8M79LCukCieldrqZWqs=, password: exaxgqkKkd0TAMrCxeonWg==, tls: true, skip-cert-verify: false}
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - "1|🇭🇰1 | 6.1MB/s"
+      - DIRECT
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 节点选择

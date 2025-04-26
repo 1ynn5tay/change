@@ -1,0 +1,165 @@
+port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+dns:
+  enable: false
+  listen: :53
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver: 
+    - 223.5.5.5
+    - 8.8.8.8
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://1.0.0.1/dns-query
+    - tls://dns.google
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+proxies:
+- name: vless-reality-vision-racknerd-79b55dc               
+  type: vless
+  server: 192.3.41.236                           
+  port: 50657                                
+  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510   
+  network: tcp
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.yahoo.com                 
+  reality-opts: 
+    public-key: lxuejbgsBWAg9E_20CldBRvpUw2fZIta_ZFLhiJTJV4    
+    short-id: 3245ba08                      
+  client-fingerprint: chrome                  
+
+- name: vmess-ws-racknerd-79b55dc                         
+  type: vmess
+  server: 192.3.41.236                        
+  port: 2095                                     
+  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  servername: www.bing.com                    
+  ws-opts:
+    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
+    headers:
+      Host: www.bing.com                     
+
+- name: hysteria2-racknerd-79b55dc                            
+  type: hysteria2                                      
+  server: 192.3.41.236                               
+  port: 31684                                
+  password: 89c293e5-5915-4320-9c99-1aef4d5ae510                          
+  alpn:
+    - h3
+  sni: www.bing.com                               
+  skip-cert-verify: true
+  fast-open: true
+
+- name: tuic5-racknerd-79b55dc                            
+  server: 192.3.41.236                      
+  port: 22570                                    
+  type: tuic
+  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
+  password: 89c293e5-5915-4320-9c99-1aef4d5ae510   
+  alpn: [h3]
+  disable-sni: true
+  reduce-rtt: true
+  udp-relay-mode: native
+  congestion-controller: bbr
+  sni: www.bing.com                                
+  skip-cert-verify: true
+
+
+
+
+
+
+
+- name: vmess-tls-argo固定-racknerd-79b55dc                         
+  type: vmess
+  server: www.visa.com.sg                        
+  port: 8443                                     
+  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  network: ws
+  servername: rack.235697.xyz                    
+  ws-opts:
+    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
+    headers:
+      Host: rack.235697.xyz
+
+- name: vmess-argo固定-racknerd-79b55dc                         
+  type: vmess
+  server: www.visa.com.sg                        
+  port: 8880                                     
+  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  servername: rack.235697.xyz                    
+  ws-opts:
+    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
+    headers:
+      Host: rack.235697.xyz
+
+proxy-groups:
+- name: 负载均衡
+  type: load-balance
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  strategy: round-robin
+  proxies:
+    - vless-reality-vision-racknerd-79b55dc                              
+    - vmess-ws-racknerd-79b55dc
+    - hysteria2-racknerd-79b55dc
+    - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
+
+- name: 自动选择
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  proxies:
+    - vless-reality-vision-racknerd-79b55dc                              
+    - vmess-ws-racknerd-79b55dc
+    - hysteria2-racknerd-79b55dc
+    - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
+    
+- name: 🌍选择代理节点
+  type: select
+  proxies:
+    - 负载均衡                                         
+    - 自动选择
+    - DIRECT
+    - vless-reality-vision-racknerd-79b55dc                              
+    - vmess-ws-racknerd-79b55dc
+    - hysteria2-racknerd-79b55dc
+    - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
+rules:
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🌍选择代理节点

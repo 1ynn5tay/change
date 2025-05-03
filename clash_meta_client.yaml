@@ -120,6 +120,16 @@ proxies:
     headers:
       Host: rack.235697.xyz
 
+- name: 香港精选
+  password: exaxgqkKkd0TAMrCxeonWg==
+  port: 443
+  server: hkre1-cdn-route.couldflare-cdn.com
+  skip-cert-verify: false
+  sni: hkre1-cdn-route.couldflare-cdn.com
+  tls: true
+  type: http
+  username: mrwdfNTD8M79LCukCieldrqZWqs=
+
 proxy-groups:
 - name: 负载均衡
   type: load-balance
@@ -133,6 +143,7 @@ proxy-groups:
     - tuic5-racknerd-79b55dc
     - vmess-tls-argo固定-racknerd-79b55dc
     - vmess-argo固定-racknerd-79b55dc
+    - 香港精选
 
 - name: 自动选择
   type: url-test
@@ -146,6 +157,7 @@ proxy-groups:
     - tuic5-racknerd-79b55dc
     - vmess-tls-argo固定-racknerd-79b55dc
     - vmess-argo固定-racknerd-79b55dc
+    - 香港精选
     
 - name: 🌍选择代理节点
   type: select
@@ -159,6 +171,7 @@ proxy-groups:
     - tuic5-racknerd-79b55dc
     - vmess-tls-argo固定-racknerd-79b55dc
     - vmess-argo固定-racknerd-79b55dc
+    - 香港精选
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT

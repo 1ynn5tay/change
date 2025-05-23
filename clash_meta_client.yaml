@@ -29,23 +29,23 @@ proxies:
 - name: vless-reality-vision-racknerd-79b55dc               
   type: vless
   server: 192.3.41.236                           
-  port: 20221                                
-  uuid: 2455e290-6684-43fa-98d5-c5e128854b22   
+  port: 24458                                
+  uuid: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9   
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
   servername: www.yahoo.com                 
   reality-opts: 
-    public-key: nFx1s5h1Z8ZBSrmUI-gnKazWD2pAh63D3ADLtmv_Gg0    
-    short-id: 5282e461                      
+    public-key: gqBtVUUvc39EGvvFb8g01GxlmOz98xv-MkZ4sgovuSU    
+    short-id: 94b915ee                      
   client-fingerprint: chrome                  
 
 - name: vmess-ws-racknerd-79b55dc                         
   type: vmess
   server: 192.3.41.236                        
-  port: 8880                                     
-  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  port: 2095                                     
+  uuid: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9       
   alterId: 0
   cipher: auto
   udp: true
@@ -53,15 +53,15 @@ proxies:
   network: ws
   servername: www.bing.com                    
   ws-opts:
-    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
+    path: "247ef4c6-be1a-410d-b0bc-fca8b284a5b9-vm"                             
     headers:
       Host: www.bing.com                     
 
 - name: hysteria2-racknerd-79b55dc                            
   type: hysteria2                                      
   server: 192.3.41.236                               
-  port: 53636                                
-  password: 2455e290-6684-43fa-98d5-c5e128854b22                          
+  port: 41979                                
+  password: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9                          
   alpn:
     - h3
   sni: www.bing.com                               
@@ -70,10 +70,10 @@ proxies:
 
 - name: tuic5-racknerd-79b55dc                            
   server: 192.3.41.236                      
-  port: 65247                                    
+  port: 27934                                    
   type: tuic
-  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
-  password: 2455e290-6684-43fa-98d5-c5e128854b22   
+  uuid: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9       
+  password: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9   
   alpn: [h3]
   disable-sni: true
   reduce-rtt: true
@@ -92,7 +92,7 @@ proxies:
   type: vmess
   server: www.visa.com.sg                        
   port: 8443                                     
-  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  uuid: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9       
   alterId: 0
   cipher: auto
   udp: true
@@ -100,7 +100,7 @@ proxies:
   network: ws
   servername: rack.235697.xyz                    
   ws-opts:
-    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
+    path: "247ef4c6-be1a-410d-b0bc-fca8b284a5b9-vm"                             
     headers:
       Host: rack.235697.xyz
 
@@ -108,7 +108,7 @@ proxies:
   type: vmess
   server: www.visa.com.sg                        
   port: 8880                                     
-  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  uuid: 247ef4c6-be1a-410d-b0bc-fca8b284a5b9       
   alterId: 0
   cipher: auto
   udp: true
@@ -116,7 +116,7 @@ proxies:
   network: ws
   servername: rack.235697.xyz                    
   ws-opts:
-    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
+    path: "247ef4c6-be1a-410d-b0bc-fca8b284a5b9-vm"                             
     headers:
       Host: rack.235697.xyz
 

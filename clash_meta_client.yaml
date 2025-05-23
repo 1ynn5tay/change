@@ -29,23 +29,23 @@ proxies:
 - name: vless-reality-vision-racknerd-79b55dc               
   type: vless
   server: 192.3.41.236                           
-  port: 50657                                
-  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510   
+  port: 20221                                
+  uuid: 2455e290-6684-43fa-98d5-c5e128854b22   
   network: tcp
   udp: true
   tls: true
   flow: xtls-rprx-vision
   servername: www.yahoo.com                 
   reality-opts: 
-    public-key: lxuejbgsBWAg9E_20CldBRvpUw2fZIta_ZFLhiJTJV4    
-    short-id: 3245ba08                      
+    public-key: nFx1s5h1Z8ZBSrmUI-gnKazWD2pAh63D3ADLtmv_Gg0    
+    short-id: 5282e461                    
   client-fingerprint: chrome                  
 
 - name: vmess-ws-racknerd-79b55dc                         
   type: vmess
   server: 192.3.41.236                        
-  port: 2095                                     
-  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
+  port: 8880                                     
+  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
   alterId: 0
   cipher: auto
   udp: true
@@ -53,15 +53,19 @@ proxies:
   network: ws
   servername: www.bing.com                    
   ws-opts:
-    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
+    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
     headers:
       Host: www.bing.com                     
+
+
+
+
 
 - name: hysteria2-racknerd-79b55dc                            
   type: hysteria2                                      
   server: 192.3.41.236                               
-  port: 31684                                
-  password: 89c293e5-5915-4320-9c99-1aef4d5ae510                          
+  port: 53636                                
+  password: 2455e290-6684-43fa-98d5-c5e128854b22                          
   alpn:
     - h3
   sni: www.bing.com                               
@@ -70,10 +74,10 @@ proxies:
 
 - name: tuic5-racknerd-79b55dc                            
   server: 192.3.41.236                      
-  port: 22570                                    
+  port: 65247                                    
   type: tuic
-  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
-  password: 89c293e5-5915-4320-9c99-1aef4d5ae510   
+  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  password: 2455e290-6684-43fa-98d5-c5e128854b22   
   alpn: [h3]
   disable-sni: true
   reduce-rtt: true
@@ -81,54 +85,6 @@ proxies:
   congestion-controller: bbr
   sni: www.bing.com                                
   skip-cert-verify: true
-
-
-
-
-
-
-
-- name: vmess-tls-argo固定-racknerd-79b55dc                         
-  type: vmess
-  server: www.visa.com.sg                        
-  port: 8443                                     
-  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  network: ws
-  servername: rack.235697.xyz                    
-  ws-opts:
-    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
-    headers:
-      Host: rack.235697.xyz
-
-- name: vmess-argo固定-racknerd-79b55dc                         
-  type: vmess
-  server: www.visa.com.sg                        
-  port: 8880                                     
-  uuid: 89c293e5-5915-4320-9c99-1aef4d5ae510       
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: ws
-  servername: rack.235697.xyz                    
-  ws-opts:
-    path: "89c293e5-5915-4320-9c99-1aef4d5ae510-vm"                             
-    headers:
-      Host: rack.235697.xyz
-
-- name: 香港精选
-  password: exaxgqkKkd0TAMrCxeonWg==
-  port: 443
-  server: hkre1-cdn-route.couldflare-cdn.com
-  skip-cert-verify: false
-  sni: hkre1-cdn-route.couldflare-cdn.com
-  tls: true
-  type: http
-  username: mrwdfNTD8M79LCukCieldrqZWqs=
 
 proxy-groups:
 - name: 负载均衡
@@ -141,9 +97,6 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
-    - vmess-tls-argo固定-racknerd-79b55dc
-    - vmess-argo固定-racknerd-79b55dc
-    - 香港精选
 
 - name: 自动选择
   type: url-test
@@ -155,9 +108,6 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
-    - vmess-tls-argo固定-racknerd-79b55dc
-    - vmess-argo固定-racknerd-79b55dc
-    - 香港精选
     
 - name: 🌍选择代理节点
   type: select
@@ -169,9 +119,6 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
-    - vmess-tls-argo固定-racknerd-79b55dc
-    - vmess-argo固定-racknerd-79b55dc
-    - 香港精选
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT

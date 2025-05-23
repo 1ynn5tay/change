@@ -38,7 +38,7 @@ proxies:
   servername: www.yahoo.com                 
   reality-opts: 
     public-key: nFx1s5h1Z8ZBSrmUI-gnKazWD2pAh63D3ADLtmv_Gg0    
-    short-id: 5282e461                    
+    short-id: 5282e461                      
   client-fingerprint: chrome                  
 
 - name: vmess-ws-racknerd-79b55dc                         
@@ -56,10 +56,6 @@ proxies:
     path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
     headers:
       Host: www.bing.com                     
-
-
-
-
 
 - name: hysteria2-racknerd-79b55dc                            
   type: hysteria2                                      
@@ -86,6 +82,44 @@ proxies:
   sni: www.bing.com                                
   skip-cert-verify: true
 
+
+
+
+
+
+
+- name: vmess-tls-argo固定-racknerd-79b55dc                         
+  type: vmess
+  server: www.visa.com.sg                        
+  port: 8443                                     
+  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  network: ws
+  servername: rack.235697.xyz                    
+  ws-opts:
+    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
+    headers:
+      Host: rack.235697.xyz
+
+- name: vmess-argo固定-racknerd-79b55dc                         
+  type: vmess
+  server: www.visa.com.sg                        
+  port: 8880                                     
+  uuid: 2455e290-6684-43fa-98d5-c5e128854b22       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  servername: rack.235697.xyz                    
+  ws-opts:
+    path: "2455e290-6684-43fa-98d5-c5e128854b22-vm"                             
+    headers:
+      Host: rack.235697.xyz
+
 proxy-groups:
 - name: 负载均衡
   type: load-balance
@@ -97,6 +131,8 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
 
 - name: 自动选择
   type: url-test
@@ -108,6 +144,8 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
     
 - name: 🌍选择代理节点
   type: select
@@ -119,6 +157,8 @@ proxy-groups:
     - vmess-ws-racknerd-79b55dc
     - hysteria2-racknerd-79b55dc
     - tuic5-racknerd-79b55dc
+    - vmess-tls-argo固定-racknerd-79b55dc
+    - vmess-argo固定-racknerd-79b55dc
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT

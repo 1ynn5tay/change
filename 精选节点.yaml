@@ -1,2 +1,3 @@
 proxies:
   - {name: 台湾01, server: c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8.1kmei.com, port: 23506, type: trojan, password: 882ca100-9795-42b2-9488-eb3415c03c5a, sni: cn.bing.com, skip-cert-verify: true, udp: true}
+  - {name: 🇭🇰 香港01|LELP|1x-1M, server: c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8.1kmei.com, port: 23499, type: trojan, password: 4dcb387d-6be3-4ebd-8a88-37c6e620bde3, sni: cn.bing.com, skip-cert-verify: true, udp: true}

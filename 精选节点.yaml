@@ -1,4 +1,2 @@
 proxies:
-  - {name: 🇹🇼 台湾1-1C, server: haa.dashuai.cyou, port: 45078, type: vmess, uuid: 7f76faa1-0125-49df-b7c0-3b08f0be7893, alterId: 0, cipher: auto, tls: false, udp: true}
-  - {name: 🇹🇼 台湾1-1B, server: haa.dashuai.cyou, port: 45078, type: vmess, uuid: 937bb00a-b92c-4727-9180-6dc07a426e2d, alterId: 0, cipher: auto, tls: false, udp: true}
-  - {name: 🇹🇼 台湾1-1A, server: haa.dashuai.cyou, port: 45078, type: vmess, uuid: ab1616eb-2b5c-4f06-9ca6-438f3dd0a257, alterId: 0, cipher: auto, tls: false, udp: true}
+  - {name: 🇹🇼 台湾01|LELP|1x-1M, server: c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8.1kmei.com, port: 23506, type: trojan, password: 882ca100-9795-42b2-9488-eb3415c03c5a, sni: cn.bing.com, skip-cert-verify: true, udp: true}

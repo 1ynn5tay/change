@@ -7,9 +7,9 @@ external-controller: 127.0.0.1:9090
 proxies:
   - {name: vless-reality-vision-racknerd-ebab9fd, server: 74.48.133.13, port: 40940, type: vless, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: true, reality-opts: {public-key: jIbumEHlkKOz1J1HpQ2NCQGQZDPDUDqJVWAcU0DGFyA, short-id: "b7cfa095" }, servername: apple.com, client-fingerprint: chrome, network: tcp, udp: true}
   - {name: vmess-ws-racknerd-ebab9fd, server: 74.48.133.13, port: 2086, type: vmess, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: www.bing.com, network: ws, ws-opts: {path: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6-vm, headers: {Host: www.bing.com}}, udp: true}
-  - {name: hysteria2-racknerd-ebab9fd, server: hy2.235697.xyz, port: 6347, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: hy2.235697.xyz, skip-cert-verify: true}
+  - {name: hysteria2-racknerd-ebab9fd, server: hy2.235697.xyz, port: 6347, ports: 20000-50000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: hy2.235697.xyz, skip-cert-verify: true}
   - {name: tuic5-racknerd-ebab9fd, server: 74.48.133.13, port: 53245, type: tuic, password: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], disable-sni: true, reduce-rtt: true, request-timeout: 0, udp-relay-mode: native, congestion-controller: bbr}
-  - {name: hy2, server: sp.235697.xyz, port: 4834, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
+  - {name: hy2, server: sp.235697.xyz, port: 4834, ports: 20000-50000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select

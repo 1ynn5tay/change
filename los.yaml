@@ -9,9 +9,10 @@ proxies:
   - {name: vmess-ws-racknerd-ebab9fd, server: 74.48.133.13, port: 2086, type: vmess, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: www.bing.com, network: ws, ws-opts: {path: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6-vm, headers: {Host: www.bing.com}}, udp: true}
   - {name: hysteria2-racknerd-ebab9fd, server: hy2.235697.xyz, port: 6347, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: hy2.235697.xyz, skip-cert-verify: true}
   - {name: tuic5-racknerd-ebab9fd, server: 74.48.133.13, port: 53245, type: tuic, password: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], disable-sni: true, reduce-rtt: true, request-timeout: 0, udp-relay-mode: native, congestion-controller: bbr}
+  - {name: hy2, server: sp.235697.xyz, port: 4834, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
-    type: select
+    输入: select
     proxies:
       - ♻️ 自动选择
       - 🔯 故障转移
@@ -21,8 +22,9 @@ proxy-groups:
       - vmess-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tuic5-racknerd-ebab9fd
+      - hy2
   - name: ♻️ 自动选择
-    type: url-test
+    输入: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -31,8 +33,9 @@ proxy-groups:
       - vmess-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tuic5-racknerd-ebab9fd
+      - hy2
   - name: 🔯 故障转移
-    type: fallback
+    输入: fallback
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
@@ -40,8 +43,9 @@ proxy-groups:
       - vmess-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tuic5-racknerd-ebab9fd
+      - hy2
   - name: 🔮 负载均衡
-    type: load-balance
+    输入: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
     interval: 180
@@ -50,19 +54,20 @@ proxy-groups:
       - vmess-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tuic5-racknerd-ebab9fd
+      - hy2
   - name: 🎯 全球直连
-    type: select
+    输入: select
     proxies:
       - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🛑 全球拦截
-    type: select
+    输入: select
     proxies:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    type: select
+    输入: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
@@ -73,6 +78,7 @@ proxy-groups:
       - vmess-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tuic5-racknerd-ebab9fd
+      - hy2
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
@@ -3428,3 +3434,4 @@ rules:
   - IP-CIDR,101.199.196.0/22,🎯 全球直连,no-resolve
   - GEOIP,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
+

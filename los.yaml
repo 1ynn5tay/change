@@ -19,7 +19,7 @@ proxy-groups:
       - 🔯 故障转移
       - 🔮 负载均衡
       - DIRECT
-      - vless-reality-vision-racknerd-ebab9fd
+      - vl-reality-racknerd-ebab9fd
       - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tu5-racknerd-ebab9fd
@@ -31,7 +31,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - vless-reality-vision-racknerd-ebab9fd
+      - vl-reality-racknerd-ebab9fd
       - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tu5-racknerd-ebab9fd
@@ -42,7 +42,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
-      - vless-reality-vision-racknerd-ebab9fd
+      - vl-reality-racknerd-ebab9fd
       - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tu5-racknerd-ebab9fd
@@ -54,7 +54,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
-      - vless-reality-vision-racknerd-ebab9fd
+      - vl-reality-racknerd-ebab9fd
       - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tu5-racknerd-ebab9fd
@@ -79,7 +79,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - vless-reality-vision-racknerd-ebab9fd
+      - vl-reality-racknerd-ebab9fd
       - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
       - tu5-racknerd-ebab9fd

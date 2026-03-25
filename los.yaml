@@ -5,14 +5,15 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-  - {name: vless-reality-vision-racknerd-ebab9fd, server: 74.48.133.13, port: 40940, type: vless, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: true, reality-opts: {public-key: jIbumEHlkKOz1J1HpQ2NCQGQZDPDUDqJVWAcU0DGFyA, short-id: "b7cfa095" }, servername: apple.com, client-fingerprint: chrome, network: tcp, udp: true}
-  - {name: vmess-ws-racknerd-ebab9fd, server: 74.48.133.13, port: 2086, type: vmess, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: www.bing.com, network: ws, ws-opts: {path: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6-vm, headers: {Host: www.bing.com}}, udp: true}
-  - {name: hysteria2-racknerd-ebab9fd, server: hy2.235697.xyz, port: 6347, ports: 20000-40000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: hy2.235697.xyz, skip-cert-verify: true}
-  - {name: tuic5-racknerd-ebab9fd, server: 74.48.133.13, port: 53245, type: tuic, password: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, uuid: b96a5266-f896-4adf-90d3-dc4e6ff3b1b6, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], disable-sni: true, reduce-rtt: true, request-timeout: 0, udp-relay-mode: native, congestion-controller: bbr}
+  - {name: vl-reality-racknerd-ebab9fd, server: 142.171.149.160, port: 59534, type: vless, uuid: 25235ba7-7a88-4251-8f98-1be0691caf32, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: true, reality-opts: {public-key: zINdGojtPTZWr74sMeCd4VEe7O4K-QkDeD7PCCXdlmo, short-id: "cda774ba" }, servername: apple.com, client-fingerprint: chrome, network: tcp}
+  - {name: vm-ws-racknerd-ebab9fd, server: 142.171.149.160, port: 8080, type: vmess, uuid: 25235ba7-7a88-4251-8f98-1be0691caf32, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: 25235ba7-7a88-4251-8f98-1be0691caf32-vm, headers: {Host: www.bing.com}}}
+  - {name: hy2-racknerd-ebab9fd, server: 142.171.149.160, port: 21545, type: hysteria2, password: 25235ba7-7a88-4251-8f98-1be0691caf32, auth: 25235ba7-7a88-4251-8f98-1be0691caf32, sni: www.bing.com, skip-cert-verify: true, alpn: [h3]}
+  - {name: tu5-racknerd-ebab9fd, server: 142.171.149.160, port: 40420, type: tuic, password: 25235ba7-7a88-4251-8f98-1be0691caf32, uuid: 25235ba7-7a88-4251-8f98-1be0691caf32, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], disable-sni: false, reduce-rtt: false, request-timeout: 15000, udp-relay-mode: native, congestion-controller: bbr}
+  - {name: anytls-racknerd-ebab9fd, server: 142.171.149.160, port: 21981, type: anytls, password: 25235ba7-7a88-4251-8f98-1be0691caf32, skip-cert-verify: true}
   - {name: hy2, server: sp.235697.xyz, port: 4834, ports: 20000-50000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
-    type: select
+    输入: select
     proxies:
       - ♻️ 自动选择
       - 🔯 故障转移
@@ -24,7 +25,7 @@ proxy-groups:
       - tuic5-racknerd-ebab9fd
       - hy2
   - name: ♻️ 自动选择
-    type: url-test
+    输入: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -35,7 +36,7 @@ proxy-groups:
       - tuic5-racknerd-ebab9fd
       - hy2
   - name: 🔯 故障转移
-    type: fallback
+    输入: fallback
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
@@ -45,7 +46,7 @@ proxy-groups:
       - tuic5-racknerd-ebab9fd
       - hy2
   - name: 🔮 负载均衡
-    type: load-balance
+    输入: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
     interval: 180
@@ -56,7 +57,7 @@ proxy-groups:
       - tuic5-racknerd-ebab9fd
       - hy2
   - name: 🎯 全球直连
-    type: select
+    输入: select
     proxies:
       - DIRECT
       - 🚀 节点选择

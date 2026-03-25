@@ -9,6 +9,7 @@ proxies:
   - {name: vm-ws-racknerd-ebab9fd, server: 142.171.149.160, port: 8080, type: vmess, uuid: 25235ba7-7a88-4251-8f98-1be0691caf32, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: 25235ba7-7a88-4251-8f98-1be0691caf32-vm, headers: {Host: www.bing.com}}}
   - {name: hy2-racknerd-ebab9fd, server: 142.171.149.160, port: 21545, type: hysteria2, password: 25235ba7-7a88-4251-8f98-1be0691caf32, auth: 25235ba7-7a88-4251-8f98-1be0691caf32, sni: www.bing.com, skip-cert-verify: true, alpn: [h3]}
   - {name: tu5-racknerd-ebab9fd, server: 142.171.149.160, port: 40420, type: tuic, password: 25235ba7-7a88-4251-8f98-1be0691caf32, uuid: 25235ba7-7a88-4251-8f98-1be0691caf32, sni: www.bing.com, skip-cert-verify: true, alpn: [h3], disable-sni: false, reduce-rtt: false, request-timeout: 15000, udp-relay-mode: native, congestion-controller: bbr}
+  - {name: anytls-racknerd-ebab9fd, server: 142.171.149.160, port: 21981, type: anytls, password: 25235ba7-7a88-4251-8f98-1be0691caf32, skip-cert-verify: true}
   - {name: hy2, server: sp.235697.xyz, port: 4834, ports: 20000-50000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
@@ -19,9 +20,10 @@ proxy-groups:
       - 🔮 负载均衡
       - DIRECT
       - vless-reality-vision-racknerd-ebab9fd
-      - vmess-ws-racknerd-ebab9fd
+      - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
-      - tuic5-racknerd-ebab9fd
+      - tu5-racknerd-ebab9fd
+      - anytls-racknerd-ebab9fd
       - hy2
   - name: ♻️ 自动选择
     输入: url-test
@@ -30,9 +32,10 @@ proxy-groups:
     tolerance: 50
     proxies:
       - vless-reality-vision-racknerd-ebab9fd
-      - vmess-ws-racknerd-ebab9fd
+      - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
-      - tuic5-racknerd-ebab9fd
+      - tu5-racknerd-ebab9fd
+      - anytls-racknerd-ebab9fd
       - hy2
   - name: 🔯 故障转移
     输入: fallback
@@ -40,9 +43,10 @@ proxy-groups:
     interval: 180
     proxies:
       - vless-reality-vision-racknerd-ebab9fd
-      - vmess-ws-racknerd-ebab9fd
+      - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
-      - tuic5-racknerd-ebab9fd
+      - tu5-racknerd-ebab9fd
+      - anytls-racknerd-ebab9fd
       - hy2
   - name: 🔮 负载均衡
     输入: load-balance
@@ -51,9 +55,10 @@ proxy-groups:
     interval: 180
     proxies:
       - vless-reality-vision-racknerd-ebab9fd
-      - vmess-ws-racknerd-ebab9fd
+      - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
-      - tuic5-racknerd-ebab9fd
+      - tu5-racknerd-ebab9fd
+      - anytls-racknerd-ebab9fd
       - hy2
   - name: 🎯 全球直连
     输入: select
@@ -62,12 +67,12 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🛑 全球拦截
-    type: select
+    输入: select
     proxies:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    type: select
+    输入: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
@@ -75,9 +80,10 @@ proxy-groups:
       - 🔯 故障转移
       - 🔮 负载均衡
       - vless-reality-vision-racknerd-ebab9fd
-      - vmess-ws-racknerd-ebab9fd
+      - vm-ws-racknerd-ebab9fd
       - hysteria2-racknerd-ebab9fd
-      - tuic5-racknerd-ebab9fd
+      - tu5-racknerd-ebab9fd
+      - anytls-racknerd-ebab9fd
       - hy2
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连

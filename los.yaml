@@ -13,7 +13,7 @@ proxies:
   - {name: hy2, server: sp.235697.xyz, port: 4834, ports: 20000-50000, type: hysteria2, password: 1ynn5tay.Stay0297, auth: 1ynn5tay.Stay0297, sni: sp.235697.xyz, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
-    输入: select
+    type: select
     proxies:
       - ♻️ 自动选择
       - 🔯 故障转移
@@ -26,7 +26,7 @@ proxy-groups:
       - anytls-racknerd-ebab9fd
       - hy2
   - name: ♻️ 自动选择
-    输入: url-test
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -38,7 +38,7 @@ proxy-groups:
       - anytls-racknerd-ebab9fd
       - hy2
   - name: 🔯 故障转移
-    输入: fallback
+    type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
@@ -49,7 +49,7 @@ proxy-groups:
       - anytls-racknerd-ebab9fd
       - hy2
   - name: 🔮 负载均衡
-    输入: load-balance
+    type: load-balance
     strategy: consistent-hashing
     url: http://www.gstatic.com/generate_204
     interval: 180
@@ -61,18 +61,18 @@ proxy-groups:
       - anytls-racknerd-ebab9fd
       - hy2
   - name: 🎯 全球直连
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🛑 全球拦截
-    输入: select
+    type: select
     proxies:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
@@ -3440,4 +3440,3 @@ rules:
   - IP-CIDR,101.199.196.0/22,🎯 全球直连,no-resolve
   - GEOIP,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
-

@@ -1,0 +1,26 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+
+proxies:
+  - name: hy2-racknerd-ebab9fd
+    type: hysteria2
+    server: 142.171.149.160
+    port: 21545
+    ports: 1000-20000
+    password: 25235ba7-7a88-4251-8f98-1be0691caf32
+    sni: www.bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - hy2-racknerd-ebab9fd
+      - DIRECT
+
+rules:
+  - MATCH,节点选择
